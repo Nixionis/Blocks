@@ -59,11 +59,27 @@ public class BlockLibrary {
         System.out.println(divider);
 
         for (int i = 0; i < arrayLength; i++) {
-          //  if (savedBlocks[i].GetRightX() > maxX)
-          //      maxX = savedBlocks[i].GetRightX();
 
-            savedBlocks[i].SetData((int)(savedBlocks[i].GetLeftX()*divider), (int)(savedBlocks[i].GetRightX()*divider), 
-                    (int)(savedBlocks[i].GetUpY() * divider), (int)(savedBlocks[i].GetDownY() * divider), savedBlocks[i].GetText());
+            int xLeftToPlace = savedBlocks[i].GetLeftX();
+            int xRightToPlace = savedBlocks[i].GetRightX();
+            int yUpToPlace = savedBlocks[i].GetUpY();
+            int yDownToPlace = savedBlocks[i].GetDownY();
+
+            if (xLeftToPlace > xRightToPlace)
+                {
+                    int temp = xLeftToPlace;
+                    xLeftToPlace = xRightToPlace;
+                    xRightToPlace = temp;
+                }
+
+            if (yDownToPlace > yUpToPlace) {
+                int temp = yDownToPlace;
+                yDownToPlace = yUpToPlace;
+                yUpToPlace = temp;
+            }
+
+            savedBlocks[i].SetData((int)(xLeftToPlace*divider), (int)(xRightToPlace*divider), 
+                    (int)(yUpToPlace * divider), (int)(yDownToPlace * divider), savedBlocks[i].GetText());
 
             int yDif = savedBlocks[i].GetDownY() - savedBlocks[i].GetUpY();
             int xDif = savedBlocks[i].GetRightX() - savedBlocks[i].GetLeftX();
@@ -81,20 +97,24 @@ public class BlockLibrary {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
 
-        Block block1 = new Block(8, 16, 0, 18, "Текст 1 Текст 1");
-        Block block2 = new Block(129, 200, 5, 18, "Текст 2 Текст 2");
-        Block block3 = new Block(251, 300, 101, 200, "Текст 3 Текст 3");
+        Block block1 = new Block(100, 120, 40, 50, "Текст 1 текст 1");
+        Block block2 = new Block(26, 32, 40, 51, "Текст 2 текст 2");
+        Block block3 = new Block(50, 45, 10, 16, "Текст 3 текст 3");
+        Block block4 = new Block(88, 131, 200, 220, "4 карта");
+        Block block5 = new Block(300, 350, 300, 350, "5 план");
 
         Block testArray[];
-        testArray = new Block[3];
+        testArray = new Block[5];
         testArray[0] = new Block(block1);
         testArray[1] = new Block(block2);
         testArray[2] = new Block(block3);
+        testArray[3] = new Block(block4);
+        testArray[4] = new Block(block5);
 
         BlockLibrary bl = new BlockLibrary(testArray);
-        bl.ChangeWidth(150);
+        bl.ChangeWidth(350);
 
         Block resultArray[];
         resultArray = bl.GetResult();
