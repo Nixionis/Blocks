@@ -1,19 +1,10 @@
 public class BlockLibrary {
     
-    int x[];
-    int y[];
-    int width[];
-    int height[];
     Block savedBlocks[];
 
     public BlockLibrary(Block blocks[]) {
 
         int arrayLength = blocks.length;
-
-        x = new int[arrayLength];
-        y = new int[arrayLength];
-        width = new int[arrayLength];
-        height = new int[arrayLength];
         savedBlocks = new Block[arrayLength];
 
         for(int i = 0; i < arrayLength; i++){
