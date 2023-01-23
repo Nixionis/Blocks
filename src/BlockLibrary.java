@@ -63,7 +63,7 @@ public class BlockLibrary {
                     xRightToPlace = temp;
                 }
 
-            if (yDownToPlace > yUpToPlace) {
+            if (yUpToPlace > yDownToPlace) {
                 int temp = yDownToPlace;
                 yDownToPlace = yUpToPlace;
                 yUpToPlace = temp;
@@ -90,11 +90,11 @@ public class BlockLibrary {
 
     public static void main(String[] args)  {
 
-        Block block1 = new Block(100, 120, 40, 50, "Текст 1 текст 1");
-        Block block2 = new Block(26, 32, 40, 51, "Текст 2 текст 2");
-        Block block3 = new Block(50, 45, 10, 16, "Текст 3 текст 3");
-        Block block4 = new Block(88, 131, 200, 220, "4 карта");
-        Block block5 = new Block(300, 350, 300, 350, "5 план");
+        Block block1 = new Block(1531, 2713, 2911, 2915, "1");
+        Block block2 = new Block(1840, 1873, 2800, 2953, "2");
+        Block block3 = new Block(719, 950, 2963, 2966, "3");
+        Block block4 = new Block(998, 2342, 1804, 2923, "4");
+        Block block5 = new Block(1025, 2555, 1582, 2783, "5");
 
         Block testArray[];
         testArray = new Block[5];
@@ -105,7 +105,7 @@ public class BlockLibrary {
         testArray[4] = new Block(block5);
 
         BlockLibrary bl = new BlockLibrary(testArray);
-        bl.ChangeWidth(350);
+        bl.ChangeWidth(1809);
 
         Block resultArray[];
         resultArray = bl.GetResult();
