@@ -2,7 +2,7 @@ public class BlockLibrary {
     
     Block savedBlocks[];
 
-    public BlockLibrary(Block blocks[]) {
+    public BlockLibrary(Block blocks[], int newWidth) {
 
         int arrayLength = blocks.length;
         savedBlocks = new Block[arrayLength];
@@ -26,6 +26,8 @@ public class BlockLibrary {
             
             h = (h - 1) / 3;
         }
+
+        ChangeWidth(newWidth);
     }
 
     public Block[] GetResult() {
@@ -104,8 +106,7 @@ public class BlockLibrary {
         testArray[3] = new Block(block4);
         testArray[4] = new Block(block5);
 
-        BlockLibrary bl = new BlockLibrary(testArray);
-        bl.ChangeWidth(1809);
+        BlockLibrary bl = new BlockLibrary(testArray, 1809);
 
         Block resultArray[];
         resultArray = bl.GetResult();
